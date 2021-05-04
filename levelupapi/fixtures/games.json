@@ -1,0 +1,22 @@
+[
+    {
+        "model": "levelupapi.game",
+        "pk": 1,
+        "fields": {
+            "game_type": 1,
+            "title": "Settlers of Catan",
+            "player_limit": 6,
+            "difficulty": 3
+        }
+    },
+    {
+        "model": "levelupapi.game",
+        "pk": 2,
+        "fields": {
+            "game_type": 2,
+            "title": "Harry Parker",
+            "player_limit": 12,
+            "difficulty": 2
+        }
+    }
+]

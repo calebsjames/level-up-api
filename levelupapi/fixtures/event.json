@@ -1,0 +1,28 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "host": 1,
+            "name": "Catan Event",
+            "event_date": "2021-06-05",
+            "event_time": "12:34",
+            "description": "A Settlers of Catan event"
+        }
+    
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "game": 2,
+            "host": 1,
+            "name": "Harry Parker Event",
+            "event_date": "2021-06-06",
+            "event_time": "12:34",
+            "description": "Play Harry Parker in the park"
+        }
+    
+    }
+]
