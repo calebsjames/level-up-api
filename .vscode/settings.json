@@ -1,3 +1,11 @@
 {
-    "python.pythonPath": "/Users/calebjames/.local/share/virtualenvs/levelup-xngbJMXR/bin/python"
+    "python.pythonPath": "/Users/calebjames/.local/share/virtualenvs/levelup-xngbJMXR/bin/python",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "database",
+            "database": "db.sqlite3"
+        }
+    ]
 }
