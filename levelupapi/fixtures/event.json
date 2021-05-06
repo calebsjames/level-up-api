@@ -1,28 +1,35 @@
 [
     {
-        "model": "levelupapi.event",
+        "model": "levelupapi.events",
         "pk": 1,
         "fields": {
+            "organizer": 1,
+            "description": "Welcome To at lunch",
             "game": 1,
-            "host": 1,
-            "name": "Catan Event",
-            "event_date": "2021-06-05",
-            "event_time": "12:34",
-            "description": "A Settlers of Catan event"
+            "date": "2021-10-04",
+            "time": "12:00"
         }
-    
     },
     {
-        "model": "levelupapi.event",
+        "model": "levelupapi.events",
         "pk": 2,
         "fields": {
+            "organizer": 1,
+            "description": "Friday night Settlers and drinks",
             "game": 2,
-            "host": 1,
-            "name": "Harry Parker Event",
-            "event_date": "2021-06-06",
-            "event_time": "12:34",
-            "description": "Play Harry Parker in the park"
+            "date": "2021-08-14",
+            "time": "19:30"
         }
-    
+    },
+    {
+        "model": "levelupapi.events",
+        "pk": 3,
+        "fields": {
+            "organizer": 1,
+            "description": "Vale of the Frost King campaign. All weekend.",
+            "game": 3,
+            "date": "2021-04-20",
+            "time": "8:00"
+        }
     }
 ]
