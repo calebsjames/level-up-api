@@ -1,6 +1,6 @@
 [
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 1,
         "fields": {
             "organizer": 1,
@@ -11,7 +11,7 @@
         }
     },
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 2,
         "fields": {
             "organizer": 1,
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 3,
         "fields": {
             "organizer": 1,
