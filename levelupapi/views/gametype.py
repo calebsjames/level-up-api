@@ -23,6 +23,7 @@ class GameTypes(ViewSet):
             return HttpResponseServerError(ex)
 
     def list(self, request):
+        
         """Handle GET requests to get all game types
 
         Returns:
@@ -37,6 +38,8 @@ class GameTypes(ViewSet):
             gametypes, many=True, context={'request': request})
         return Response(serializer.data)
 
+    
+
 class GameTypeSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
 
@@ -45,4 +48,4 @@ class GameTypeSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = GameType
-        fields = ('id', 'label')
+        fields = ('id', 'type')
