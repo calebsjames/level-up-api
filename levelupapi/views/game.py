@@ -28,8 +28,8 @@ class Games(ViewSet):
         game = Game()
         game.title = request.data["title"]
         game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
+        game.number_of_players = request.data["number_of_players"]
+        game.skill_level = request.data["skill_level"]
         game.gamer = gamer
 
         # Use the Django ORM to get the record from the database
@@ -72,31 +72,31 @@ class Games(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
-    def update(self, request, pk=None):
-        """Handle PUT requests for a game
+    # def update(self, request, pk=None):
+    #     """Handle PUT requests for a game
 
-        Returns:
-            Response -- Empty body with 204 status code
-        """
-        gamer = Gamer.objects.get(user=request.auth.user)
+    #     Returns:
+    #         Response -- Empty body with 204 status code
+    #     """
+    #     gamer = Gamer.objects.get(user=request.auth.user)
 
-        # Do mostly the same thing as POST, but instead of
-        # creating a new instance of Game, get the game record
-        # from the database whose primary key is `pk`
-        game = Game.objects.get(pk=pk)
-        game.title = request.data["title"]
-        game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
-        game.gamer = gamer
+    #     # Do mostly the same thing as POST, but instead of
+    #     # creating a new instance of Game, get the game record
+    #     # from the database whose primary key is `pk`
+    #     game = Game.objects.get(pk=pk)
+    #     game.title = request.data["title"]
+    #     game.maker = request.data["maker"]
+    #     game.number_of_players = request.data["numberOfPlayers"]
+    #     game.skill_level = request.data["skillLevel"]
+    #     game.gamer = gamer
 
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
-        game.save()
+    #     gametype = GameType.objects.get(pk=request.data["gameTypeId"])
+    #     game.gametype = gametype
+    #     game.save()
 
-        # 204 status code means everything worked but the
-        # server is not sending back any data in the response
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+    #     # 204 status code means everything worked but the
+    #     # server is not sending back any data in the response
+    #     return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single game
@@ -148,8 +148,8 @@ class Games(ViewSet):
         game = Game.objects.get(pk=pk)
         game.title = request.data["title"]
         game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
+        game.number_of_players = request.data["number_of_players"]
+        game.skill_level = request.data["skill_level"]
         game.gamer = gamer
 
         gametype = GameType.objects.get(pk=request.data["gameTypeId"])
