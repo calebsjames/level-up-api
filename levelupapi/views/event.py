@@ -101,13 +101,13 @@ class Events(ViewSet):
 
         # Set the `joined` property on every event
         for event in events:
-            event.joined = None
+            event.joined = gamer in event.attendees.all()
 
-            try:
-                GamerEvent.objects.get(event=event, gamer=gamer)
-                event.joined = True
-            except GamerEvent.DoesNotExist:
-                event.joined = False
+            # try:
+            #     GamerEvent.objects.get(event=event, gamer=gamer)
+            #     event.joined = True
+            # except GamerEvent.DoesNotExist:
+            #     event.joined = False
 
         # Support filtering events by game
         game = self.request.query_params.get('gameId', None)
