@@ -6,6 +6,12 @@
             "driver": "SQLite",
             "name": "database",
             "database": "db.sqlite3"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "db.sqlite3",
+            "database": "db.sqlite3"
         }
     ]
 }

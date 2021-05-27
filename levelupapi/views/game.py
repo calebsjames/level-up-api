@@ -14,7 +14,6 @@ class Games(ViewSet):
 
     def create(self, request):
         """Handle POST operations
-
         Returns:
             Response -- JSON serialized game instance
         """
@@ -44,8 +43,8 @@ class Games(ViewSet):
         try:
             game.save()
             serializer = GameSerializer(game, context={'request': request})
-            return Response(serializer.data)
-
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
         # If anything went wrong, catch the exception and
         # send a response with a 400 status code to tell the
         # client that something was wrong with its request data
@@ -56,7 +55,6 @@ class Games(ViewSet):
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for single game
-
         Returns:
             Response -- JSON serialized game instance
         """
@@ -69,38 +67,15 @@ class Games(ViewSet):
             game = Game.objects.get(pk=pk)
             serializer = GameSerializer(game, context={'request': request})
             return Response(serializer.data)
+        except Game.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
+        
 
-    # def update(self, request, pk=None):
-    #     """Handle PUT requests for a game
-
-    #     Returns:
-    #         Response -- Empty body with 204 status code
-    #     """
-    #     gamer = Gamer.objects.get(user=request.auth.user)
-
-    #     # Do mostly the same thing as POST, but instead of
-    #     # creating a new instance of Game, get the game record
-    #     # from the database whose primary key is `pk`
-    #     game = Game.objects.get(pk=pk)
-    #     game.title = request.data["title"]
-    #     game.maker = request.data["maker"]
-    #     game.number_of_players = request.data["numberOfPlayers"]
-    #     game.skill_level = request.data["skillLevel"]
-    #     game.gamer = gamer
-
-    #     gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-    #     game.gametype = gametype
-    #     game.save()
-
-    #     # 204 status code means everything worked but the
-    #     # server is not sending back any data in the response
-    #     return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single game
-
         Returns:
             Response -- 200, 404, or 500 status code
         """
@@ -116,9 +91,9 @@ class Games(ViewSet):
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
     def list(self, request):
         """Handle GET requests to games resource
-
         Returns:
             Response -- JSON serialized list of games
         """
@@ -139,7 +114,6 @@ class Games(ViewSet):
 
     def update(self, request, pk=None):
         """Handle PUT requests for a game
-
         Returns:
             Response -- Empty body with 204 status code
         """
@@ -161,7 +135,6 @@ class Games(ViewSet):
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games
-
     Arguments:
         serializer type
     """
